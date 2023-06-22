@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/styles_home.css">
+    <!--Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+    <!--CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Laro Tayo!: Home</title>
+    <!--JavaScript for carousel-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: #C1A37F;">      
+    <nav class="navbar">
+        <div class="container-fluid">   
+          <p class="navbar-brand" id="navbar-brand" onclick="window.location.href='/'"><img src="static/image/logo.png" alt="logo" width="120px" height="70px"></p>
+        </div> 
+    </nav>
+
+    <div class="game-overview">
+      <img src="static/image/trial_tumbang_preso_carousel.png" class="game-image" alt="tumbang preso animation by Kei Nine (2020)">
+      <h5 class="game-name">Tumbang Preso</h5>
+      <p class="game-description">Tumbang preso is one of the most well-known traditional Filipino games traditionally played by children on the street.
+        In "Laro Tayo!", players must answer questions to gain points. If their answer is correct, the can will fall; if not, it will shake.
+        If their answers are incorrect, they still have two chances to answer correctly, as long as they have slippers or life.</p>
+      <button type="button" class="modal-button" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" title="Click this button to continue.">PLAY!</button>
+    </div>
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body">
+            <h5>Choose a subject</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" class="button-math" onclick="launchGame('Mathematics')">Mathematics</button>
+            <button type="button" class="button-sci" onclick="launchGame('Science')">Science</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <footer class="text-center text-lg-start text-muted">
+        <section class="layer1">
+          <div class="container text-center text-md-start mt-5">
+            <div class="row mt-3">
+              <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                <h6 class="text-uppercase fw-bold mb-4"> Laro Tayo! </h6>
+                <p>
+                    Laro Tayo! is a web game that promotes the traditional Filipino game called 
+                    Tumbang Preso while teaching children basic mathematical 
+                    and scientific concept.
+                </p>
+              </div>
+    
+              <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                <h6 class="text-uppercase fw-bold mb-4"> Developers </h6>
+                <p> Lalainne Andaya </p>
+                <p> Marielle Kloie Concepcion </p>
+                <p> Atasha Frances Gayle Doria </p>
+                <p> Partricia Maxene Purificacion </p>
+              </div>
+    
+              <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                <h6 class="text-uppercase fw-bold mb-4"> Contact Us </h6>
+                <p> 3 Humabon, Makati, 1232 Kalakhang Maynila </p>
+              </div>
+            </div>
+          </div>
+        </section>
+    
+        <div class="text-center p-4"> © 2023 Copyright Whistexess</div>
+      </footer>
+    </div>
+    <script>
+      function launchGame(subject) {
+        
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "/launch_game?subject=" + subject, true);
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+          
+          }
+        };
+        xhr.send();
+      }
+    </script>
+    <script>
+      function logout() {
+         
+          var xhr = new XMLHttpRequest();
+          xhr.open("GET", "/", true);
+          xhr.onreadystatechange = function () {
+              if (xhr.readyState === 4 && xhr.status === 200) {
+                 
+                  window.location.href = "/";
+              }
+          };
+          xhr.send();
+      }
+  </script>
+</body>
+</html>
